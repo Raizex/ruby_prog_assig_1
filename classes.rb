@@ -1,7 +1,7 @@
 class Dessert
     def initialize(name, calories)
-        self.name=(name)
-        self.calories=(calories)
+        self.name = name
+        self.calories = calories
     end
 
     def name=(name)
@@ -46,7 +46,7 @@ test_dessert(fudge)
 class JellyBean < Dessert
 	def initialize(name, calories, flavor)
 		super(name, calories)
-		self.flavor=(flavor)
+		self.flavor = flavor
 	end
 
 	def flavor=(flavor)
