@@ -4,8 +4,12 @@ class Class
         attr_reader attr_name            # create the attribute's getter
         attr_reader attr_name+"_history" # create bar_history getter
         class_eval %Q"
-        	def #{attr_name}= (attr_name)
-        		@#{attr_name} = attr_name
+        	def #{attr_name}= (val)
+        		if @#{attr_name}_history.nil?
+        			@#{attr_name}_history = [nil]
+        		end
+        		@#{attr_name}_history << val
+        		@#{attr_name} = val
         	end
 		"
     end
@@ -17,5 +21,8 @@ end
 
 f = Foo.new
 f.bar = 1
+puts f.bar
 f.bar = 2
-#f.bar_history
+puts f.bar
+print f.bar_history
+puts
