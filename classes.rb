@@ -63,8 +63,8 @@ class JellyBean < Dessert
 	end
 end
 
-blueberry_jb = JellyBean.new("blueberry_jb", 36, "blueberry")
+blueberry_jb = JellyBean.new("blueberry jellybean", 36, "blueberry")
 test_dessert(blueberry_jb)
 
-black_licorice_jb = JellyBean.new("black_licorice_jb", 23, "black licorice")
+black_licorice_jb = JellyBean.new("black licorice jellybean", 23, "black licorice")
 test_dessert(black_licorice_jb)
