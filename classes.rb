@@ -1,13 +1,22 @@
 class Dessert
     def initialize(name, calories)
-        # Your code here
+        @name = name
+        @calories = calories
     end
 
     def healthy?
-        # Your code here
+        @calories < 200
     end
 
     def delicious?
-        # Your code here
+        true
     end
 end
+
+jellybean = Dessert.new("jellybean", 30)
+puts jellybean.healthy?
+puts jellybean.delicious?
+
+fudge = Dessert.new("fudge", 420)
+puts fudge.healthy?
+puts fudge.delicious?
