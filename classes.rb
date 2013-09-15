@@ -1,14 +1,14 @@
 class Dessert
     def initialize(name, calories)
-        @name = name
-        @calories = calories
+        self.name=(name)
+        self.calories=(calories)
     end
 
-    def name(name)
+    def name=(name)
     	@name = name
     end
 
-    def calories(calories)
+    def calories=(calories)
     	@calories = calories
     end
 
@@ -29,22 +29,32 @@ class Dessert
     end
 end
 
+def test_dessert(dessert)
+	puts "Name: " + dessert.name
+	puts "Calories: " + dessert.calories.to_s
+	puts "Healthy?: " + dessert.healthy?.to_s
+	puts "Delicious?: " + dessert.delicious?.to_s
+	puts
+end
+
 mint = Dessert.new("mint", 30)
-puts mint.name
-puts mint.calories
-puts mint.healthy?
-puts mint.delicious?
+test_dessert(mint)
 
 fudge = Dessert.new("fudge", 420)
-puts fudge.name
-puts fudge.calories
-puts fudge.healthy?
-puts fudge.delicious?
+test_dessert(fudge)
 
 class JellyBean < Dessert
 	def initialize(name, calories, flavor)
 		super(name, calories)
+		self.flavor=(flavor)
+	end
+
+	def flavor=(flavor)
 		@flavor = flavor
+	end
+
+	def flavor
+		@flavor
 	end
 
 	def delicious?
@@ -53,14 +63,8 @@ class JellyBean < Dessert
 	end
 end
 
-blueberry_jb = JellyBean.new("jellybean", 36, "blueberry")
-puts blueberry_jb.name
-puts blueberry_jb.calories
-puts blueberry_jb.healthy?
-puts blueberry_jb.delicious?
+blueberry_jb = JellyBean.new("blueberry_jb", 36, "blueberry")
+test_dessert(blueberry_jb)
 
-black_licorice_jb = JellyBean.new("jellybean", 23, "black licorice")
-puts black_licorice_jb.name
-puts black_licorice_jb.calories
-puts black_licorice_jb.healthy?
-puts black_licorice_jb.delicious?
+black_licorice_jb = JellyBean.new("black_licorice_jb", 23, "black licorice")
+test_dessert(black_licorice_jb)
