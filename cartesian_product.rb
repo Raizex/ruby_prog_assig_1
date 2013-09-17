@@ -1,28 +1,30 @@
+class Array
+	def *(a)
+		CartesianProduct.new(self, a)
+	end
+end	
+
 class CartesianProduct
 	include Enumerable
-	attr_accessor :a, :b, :product
     
     def initialize(a, b)
-    	self.a = a
-    	self.b = b
-    	calculate_product
-    end
-
-    def calculate_product
-    	self.product = []
+    	@product = []
     	a.each do |a|
     		b.each do |b|
-    			self.product << [a, b]
+    			@product << [a, b]
     		end
     	end
     end
 
     def each
-    	product.each do |product|
-    		yield product
+    	@product.each do |element|
+    		yield element
     	end
     end
 end
 
 c = CartesianProduct.new([:a, :b], [4, 5])
 c.each {|elt| puts elt.inspect}
+puts
+
+([:a, :b, :c] * [4, 5, 6, 7]).each {|elt| puts elt.inspect}
