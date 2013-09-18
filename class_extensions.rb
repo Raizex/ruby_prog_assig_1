@@ -29,4 +29,25 @@ puts
 puts 1.dollars.in(:dollars)
 puts 1.yen.in(:dollars)
 # puts 1.yen.in(:japan)
+puts
 
+# Part b)
+class String
+	def palindrome?
+		string = self[/[a-zA-Z]/].downcase
+
+		string == string.reverse
+	end
+end
+
+def palintest(number, string)
+	if string.palindrome?
+		print("PalinTest#{number}: Success\n")
+	else
+		print("PalinTest#{number}: Failed\n")
+	end
+end
+
+palintest(1, "Abracadabra")
+palintest(2, "Madam, I'm Adam!")
+palintest(3, "A man, a plan, a canal -- Panama")
