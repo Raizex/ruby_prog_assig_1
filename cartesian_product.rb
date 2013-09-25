@@ -9,6 +9,7 @@ class CartesianProduct
     
     def initialize(a, b)
     	@product = []
+    	
     	a.each do |a|
     		b.each do |b|
     			@product << [a, b]
