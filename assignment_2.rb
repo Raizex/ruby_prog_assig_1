@@ -101,7 +101,7 @@ print f.bar_history
 puts
 
 # Part 3
-# Part a)
+    # Part a)
 class NoSuchCurrencyError < StandardError ; end
 
 class Numeric
@@ -134,7 +134,7 @@ puts 1.yen.in(:dollars)
 # puts 1.yen.in(:japan)
 puts
 
-# Part b)
+    # Part b)
 class String
     def palindrome?
         string = self[/[a-zA-Z]/].downcase
@@ -154,6 +154,44 @@ end
 palintest(1, "Abracadabra")
 palintest(2, "Madam, I'm Adam!")
 palintest(3, "A man, a plan, a canal -- Panama")
+
+    # part c)
+module Enumerable
+    def palindrome?
+        forward = self.each
+        backward = self.reverse_each
+
+        loop do
+            return false unless forward.next == backward.next
+        end
+
+        true # Only gets to here if every element going forwards
+                # equals every element going backwards.
+    end
+end
+
+
+def test_enumurable
+    print "TestEnum: "
+
+    if [1,2,3,2,1].palindrome?
+        puts "Success"
+    else
+        puts "Failed"
+    end
+end
+
+def test_palindrome_hash # Check that no errors occur when
+                            # palindrome? is called on a hash
+    
+    print "TestPalinHash: "
+    { "a" => 1, "b" => 2, "c" => 1 }.palindrome?
+    puts "Success"
+end
+
+test_enumurable
+test_palindrome_hash
+puts
 
 # Part 4
 class Array
